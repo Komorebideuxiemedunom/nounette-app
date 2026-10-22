@@ -4,4 +4,16 @@
 main{max-width:720px;margin:0 auto;padding:48px 20px}img.icon{width:96px;height:96px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
 h1{font-size:34px;margin:20px 0 6px}h2{font-size:21px;margin-top:32px}p,li{color:var(--muted)}a{color:var(--accent)}
 .card{background:var(--card);border-radius:20px;padding:20px 22px;margin:22px 0;box-shadow:0 4px 16px rgba(0,0,0,.05)}
-footer{margin-top:40px;font-size:14px;color:var(--muted)}
+footer{margin-top:40px;font-size:14px;color:var(--muted)}.champs{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.champs label{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
+.champs label span{display:flex;align-items:center;gap:6px;color:var(--ink)}
+.champs input,.champs select{width:100%;font:inherit;font-size:17px;padding:9px 10px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:var(--bg);color:var(--ink)}
+.champs small{font-size:12px}
+#resultat{margin-top:20px}#resultat table{width:100%;border-collapse:collapse}
+#resultat td{padding:8px 0;border-top:1px solid rgba(127,127,127,.2);color:var(--ink);vertical-align:top}
+#resultat td:last-child{text-align:right;padding-left:12px}
+.alerte{background:rgba(232,115,95,.12);color:var(--ink);border-radius:12px;padding:10px 12px}
+.note{font-size:13px}
+.cta{background:var(--accent);border-radius:20px;padding:20px 22px;margin:28px 0}.cta p,.cta strong{color:#fff}
+.cta .btn{display:inline-block;background:#fff;color:#B5483A;font-weight:700;border-radius:12px;padding:10px 16px;text-decoration:none;margin-top:6px}
+@media (max-width:560px){.champs{grid-template-columns:1fr}#resultat td:last-child{text-align:left}}

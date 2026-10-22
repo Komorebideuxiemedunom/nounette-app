@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://komorebideuxiemedunom.github.io/nounette-app/sitemap.xml
