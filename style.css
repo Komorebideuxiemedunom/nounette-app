@@ -1,19 +1,58 @@
-:root{--bg:#FAF7F2;--ink:#1C2033;--muted:#6B6F80;--accent:#E8735F;--card:#fff}
-@media (prefers-color-scheme:dark){:root{--bg:#111320;--ink:#F3F1EC;--muted:#A8ABB8;--card:#1B1E2E}}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-main{max-width:720px;margin:0 auto;padding:48px 20px}img.icon{width:96px;height:96px;border-radius:22px;box-shadow:0 8px 24px rgba(0,0,0,.15)}
-h1{font-size:34px;margin:20px 0 6px}h2{font-size:21px;margin-top:32px}p,li{color:var(--muted)}a{color:var(--accent)}
-.card{background:var(--card);border-radius:20px;padding:20px 22px;margin:22px 0;box-shadow:0 4px 16px rgba(0,0,0,.05)}
-footer{margin-top:40px;font-size:14px;color:var(--muted)}.champs{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+/* Nounette : le mois de l'assistante maternelle. Bitter, crème et rose framboise. Échelle de 8 px. */
+@font-face{font-family:"Bitter";src:url(fonts/bitter.woff2) format("woff2");font-weight:100 900;font-display:swap}
+:root{--bg:#FBF5EE;--ink:#2A1E1C;--muted:#5A4C48;--accent:#A8344D;--trait:#E6D9CC;--jour:#F1E2D6;--card:#FBF5EE;
+  --s1:8px;--s2:16px;--s3:24px;--s4:32px;--s6:48px;--s8:64px;--s12:96px}
+@media (prefers-color-scheme:dark){:root{--bg:#1B1514;--ink:#F6EDE6;--muted:#C4B5AE;--accent:#F08AA0;--trait:#3A2E2B;--jour:#2A211F;--card:#1B1514}}
+*{box-sizing:border-box}html{background:var(--bg)}
+body{margin:0;color:var(--ink);font:400 18px/1.65 "Bitter",Georgia,serif}
+main{max-width:1080px;margin:0 auto;padding:var(--s4) var(--s3) var(--s8)}
+a{color:var(--accent);text-underline-offset:3px}a:hover,a:focus-visible{color:var(--ink);text-decoration-thickness:2px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+p,li{color:var(--muted);max-width:64ch}strong{color:var(--ink);font-weight:650}
+.marque{display:inline-flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;font-weight:700;margin-bottom:var(--s8)}
+.marque img{width:36px;height:36px;border-radius:9px}
+h1{font-weight:800;font-size:clamp(38px,5.6vw,68px);line-height:1.02;letter-spacing:-.02em;margin:0 0 var(--s3);max-width:18ch}
+h1.geant{font-size:clamp(60px,8.6vw,108px);line-height:.9;letter-spacing:-.04em}
+h2{font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:1.15;letter-spacing:-.01em;margin:var(--s6) 0 var(--s2)}
+.card{background:none;border-top:2px solid var(--ink);padding:var(--s3) 0;margin:var(--s4) 0}
+footer{margin-top:var(--s8);padding-top:var(--s3);border-top:1px solid var(--trait);font-size:15px;color:var(--muted)}
+.chapeau{font-size:clamp(21px,2.3vw,27px);line-height:1.4;color:var(--ink);max-width:30ch;margin:0}
+
+/* Le mois : la signature de Nounette */
+.haut{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:var(--s6);align-items:end;margin-bottom:var(--s8)}
+.mois{margin:0}
+.mois figcaption{display:flex;justify-content:space-between;font-weight:700;font-size:20px;margin-bottom:var(--s2)}
+.mois figcaption span{color:var(--muted);font-weight:400;font-size:16px}
+.mois ol{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.mois li{aspect-ratio:1;background:var(--jour);display:flex;align-items:flex-start;justify-content:flex-start;padding:6px;font-size:14px;color:var(--muted);max-width:none;font-variant-numeric:tabular-nums}
+.mois li.t{background:var(--accent);color:var(--bg);font-weight:700}
+.mois li.v{background:none}
+.mois li.e{background:none;border:1px solid var(--trait)}
+.formule{font-size:clamp(18px,1.8vw,21px);color:var(--ink);margin:var(--s3) 0 0;max-width:none}
+.formule b{color:var(--accent)}
+.outils{list-style:none;margin:0;padding:0;counter-reset:o}
+.outils li{max-width:none;border-top:1px solid var(--trait)}
+.outils a{display:grid;grid-template-columns:72px 1fr;gap:var(--s3);padding:var(--s3) 0;text-decoration:none;color:var(--ink)}
+.outils a::before{counter-increment:o;content:counter(o,decimal-leading-zero);font-weight:300;font-size:40px;line-height:1;color:var(--accent)}
+.outils b{display:block;font-size:clamp(22px,2.4vw,28px);line-height:1.2}
+.outils span{color:var(--muted)}
+.outils a:hover b,.outils a:focus-visible b{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:5px}
+.faq{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:var(--s1) var(--s6);border-top:1px solid var(--trait);padding:var(--s3) 0}
+.faq h3{margin:0;font-size:20px;line-height:1.3}.faq p{margin:0}
+@media (max-width:760px){main{padding:var(--s3) var(--s2) var(--s6)}.marque{margin-bottom:var(--s6)}.haut,.faq{grid-template-columns:1fr}.outils a{grid-template-columns:48px 1fr;gap:var(--s2)}.outils a::before{font-size:28px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.champs{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
 .champs label{display:flex;flex-direction:column;gap:4px;font-size:14px;color:var(--muted)}
 .champs label span{display:flex;align-items:center;gap:6px;color:var(--ink)}
-.champs input,.champs select{width:100%;font:inherit;font-size:17px;padding:9px 10px;border-radius:10px;border:1px solid rgba(127,127,127,.35);background:var(--bg);color:var(--ink)}
+.champs input,.champs select{width:100%;font:inherit;font-size:17px;padding:9px 10px;border-radius:0;border:1px solid rgba(127,127,127,.35);background:var(--bg);color:var(--ink)}
 .champs small{font-size:12px}
 #resultat{margin-top:20px}#resultat table{width:100%;border-collapse:collapse}
 #resultat td{padding:8px 0;border-top:1px solid rgba(127,127,127,.2);color:var(--ink);vertical-align:top}
 #resultat td:last-child{text-align:right;padding-left:12px}
-.alerte{background:rgba(232,115,95,.12);color:var(--ink);border-radius:12px;padding:10px 12px}
+.alerte{border-left:4px solid var(--accent);color:var(--ink);padding:var(--s1) var(--s2)}
 .note{font-size:13px}
-.cta{background:var(--accent);border-radius:20px;padding:20px 22px;margin:28px 0}.cta p,.cta strong{color:#fff}
-.cta .btn{display:inline-block;background:#fff;color:#B5483A;font-weight:700;border-radius:12px;padding:10px 16px;text-decoration:none;margin-top:6px}
+.cta{background:var(--accent);padding:var(--s4);margin:var(--s6) 0}.cta p,.cta strong{color:var(--bg)}
+.cta .btn{display:inline-block;background:var(--bg);color:var(--ink);font-weight:700;border-radius:0;padding:10px 16px;text-decoration:none;margin-top:6px}
 @media (max-width:560px){.champs{grid-template-columns:1fr}#resultat td:last-child{text-align:left}}
+.cta .btn:hover,.cta .btn:focus-visible{background:var(--ink);color:var(--bg)}
+#resultat td:last-child{font-variant-numeric:tabular-nums;font-weight:600}
